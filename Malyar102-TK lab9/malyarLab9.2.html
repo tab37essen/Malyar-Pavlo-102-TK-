@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Навігаційна карта</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #e0f2fe, #bae6fd);
+  text-align: center;}
+
+h2 {
+  color: #0c4a6e;
+  margin-bottom: 20px;}
+
+.container {
+  display: inline-block;
+  padding: 10px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);}
+
+img {
+  border-radius: 10px;
+  transition: 0.3s;}
+
+img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);}
+</style>
+</head>
+<body>
+<center>
+
+<h2>Навігаційна карта</h2>
+<map name="map3">
+<area shape="circle"
+coords="100,100,50"
+href="htmls/MalyarLab02-8.html"
+title="Домашня сторінка">
+
+<area shape="rect"
+coords="200,50,350,150"
+href="htmls/MalyarLab8.html"
+title="Мої гіперпосилання">
+
+<area shape="poly"
+coords="400,200,450,250,420,300,350,270"
+href="malyarLab9.html"
+title="Моя Батьківщина">
+</map>
+<img src="images/figura1.png"
+width="500"
+border="2"
+usemap="#map3">
+</center>
+</body>
+</html>
