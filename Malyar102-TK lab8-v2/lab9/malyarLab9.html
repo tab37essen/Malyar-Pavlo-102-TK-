@@ -1,0 +1,59 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Моя Батьківщина</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #dbeafe, #bfdbfe);
+  text-align: center;}
+
+h1 {
+  color: #1e3a8a;}
+
+.container {
+  position: relative;
+  width: 300px;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);}
+
+.image {
+  width: 100%;
+  display: block;}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s;
+  padding: 10px;}
+
+.container:hover .overlay {
+  opacity: 1;}
+</style>
+</head>
+<body>
+<h1>Моя Батьківщина — Україна</h1>
+
+<div class="container">
+  <img src="images/kyiv.jpg" class="image">
+  <div class="overlay">Київ - столиця України</div>
+</div>
+
+<div class="container">
+  <img src="images/poltava.jpg" class="image">
+  <div class="overlay">Полтава - місто галушка</div>
+</div>
+
+<div class="container">
+  <img src="images/odesa.jpg" class="image">
+  <div class="overlay">Одеса - перлина біля моря</div>
+</div>
+</body>
+</html>
