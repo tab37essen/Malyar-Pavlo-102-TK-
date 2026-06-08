@@ -1,0 +1,304 @@
+`
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Рецензія на Outer Wilds</title>
+
+<link rel="stylesheet" href="style/style.css">
+
+</head>
+
+<body>
+
+<div class="flash" id="flash"></div>
+
+<audio id="bgMusic"></audio>
+
+<audio id="clickSound">
+    <source src="sound/click.mp3" type="audio/mpeg">
+</audio>
+
+
+<div class="header">
+
+    <div class="title">
+        OUTER WILDS
+    </div>
+
+
+    <div class="nav">
+
+        <a href="#intro">Вступ</a>
+
+        <a href="#story">Сюжет</a>
+
+        <a href="#atmosphere">Атмосфера</a>
+
+        <a href="#final">Висновок</a>
+
+        <a href="timber-hearth.html" class="planet-link">
+        Камельок
+        </a>
+
+        <a href="giants-deep.html" class="planet-link">
+        Пучина гіганта
+        </a>
+
+        <a href="brittle-hollow.html" class="planet-link">
+        Пустотна сфера
+        </a>
+
+        <a href="quantum-moon.html" class="planet-link">
+        Квантовий місяць
+        </a>
+
+    </div>
+
+
+    <div class="right-panel">
+
+        <div class="timer" id="timer">
+            22:00
+        </div>
+
+        <button class="music-btn" id="musicToggle">
+            Вимкнути музику
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="content">
+
+    <section class="section" id="intro">
+
+        <div class="section-title">
+            Вступ
+        </div>
+
+        <div class="text">
+            Outer Wilds — це не просто космічна гра. Це подорож у невідоме, 
+    де кожна планета приховує власні таємниці, а сам космос здається 
+    живим і небезпечним. Гра одразу створює атмосферу самотності, 
+    цікавості та постійного бажання досліджувати щось нове.
+        </div>
+
+    </section>
+
+    <section class="section" id="story">
+
+        <div class="section-title">
+            Сюжет
+        </div>
+
+        <div class="text">
+            Гравець бере роль молодого астронавта, який вирушає у свою першу 
+    космічну експедицію. Але дуже швидко стає зрозуміло, що у сонячній 
+    системі відбувається щось дивне. Часова петля, зникла цивілізація 
+    та загадки стародавніх руїн поступово складаються у велику історію.
+
+    Сюжет подається через дослідження світу, а не через довгі катсцени. 
+    Саме тому кожне нове відкриття відчувається важливим і особистим.
+        </div>
+
+    </section>
+
+    <section class="section" id="atmosphere">
+
+        <div class="section-title">
+            Атмосфера
+        </div>
+
+        <div class="text">
+            Найсильнішою стороною Outer Wilds є атмосфера. 
+    Музика, звуки космосу та дизайн планет створюють відчуття справжньої 
+    космічної пригоди. Кожна планета має власний стиль і механіки:
+    від крихких руїн Brittle Hollow до небезпечних океанів Giant’s Deep.
+
+    Особливо добре працює система 22-хвилинного циклу. 
+    Вона створює напругу та нагадує, що час у цьому світі обмежений.
+        </div>
+
+    </section>
+
+    <section class="section" id="final">
+
+        <div class="section-title">
+            Висновок
+        </div>
+
+        <div class="text">
+            Outer Wilds — це одна з найбільш незвичайних ігор, у які я грав. 
+    Вона не веде гравця за руку, а дозволяє самостійно досліджувати світ 
+    і знаходити відповіді. Саме через це кожне відкриття запам’ятовується.
+
+    Ця гра підійде людям, які люблять атмосферні пригоди, дослідження 
+    та наукову фантастику. Outer Wilds залишає сильні емоції навіть після проходження.
+        </div>
+
+    </section>
+
+</div>
+
+<script>
+
+
+const music = document.getElementById("bgMusic");
+
+const button = document.getElementById("musicToggle");
+
+const playlist = [
+
+    "sound/music2.mp3",
+
+    "sound/music1.mp3",
+
+    "sound/music3.mp3",
+
+    "sound/music4.mp3"
+
+];
+
+let currentTrack = 0;
+
+function loadTrack(index){
+
+    music.src = playlist[index];
+}
+
+loadTrack(currentTrack);
+
+
+window.addEventListener("click", () => {
+
+    music.play();
+
+}, { once:true });
+
+
+music.addEventListener("ended", () => {
+
+    currentTrack++;
+
+    if(currentTrack >= playlist.length){
+
+        currentTrack = 0;
+    }
+
+    loadTrack(currentTrack);
+
+    music.play();
+
+});
+
+
+button.addEventListener("click", () => {
+
+    if(music.paused){
+
+        music.play();
+
+        button.textContent = "Вимкнути музику";
+    }
+
+    else{
+
+        music.pause();
+
+        button.textContent = "Увімкнути музику";
+    }
+
+});
+
+
+const sections = document.querySelectorAll(".section");
+
+window.addEventListener("scroll", () => {
+
+    sections.forEach(section => {
+
+        const sectionTop = section.getBoundingClientRect().top;
+
+        if(sectionTop < window.innerHeight - 100){
+
+            section.classList.add("show");
+        }
+
+    });
+
+});
+
+
+
+let time = 22 * 60;
+
+const timer = document.getElementById("timer");
+
+const flash = document.getElementById("flash");
+
+setInterval(() => {
+
+    let minutes = Math.floor(time / 60);
+
+    let seconds = time % 60;
+
+    if(seconds < 10){
+        seconds = "0" + seconds;
+    }
+
+    timer.textContent = minutes + ":" + seconds;
+
+    time--;
+
+
+    if(time < 0){
+
+        flash.classList.add("active");
+
+        setTimeout(() => {
+
+            location.reload();
+
+        }, 2000);
+
+    }
+
+}, 1000);
+
+
+
+const clickSound = document.getElementById("clickSound");
+
+const links = document.querySelectorAll(".planet-link");
+
+links.forEach(link => {
+
+    link.addEventListener("click", function(event){
+
+        event.preventDefault();
+
+        const target = this.href;
+
+        clickSound.currentTime = 0;
+
+        clickSound.play();
+
+        setTimeout(() => {
+
+            window.location.href = target;
+
+        }, 400);
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+`
