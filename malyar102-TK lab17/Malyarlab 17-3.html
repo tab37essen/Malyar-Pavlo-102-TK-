@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Використання зображення-фону, що не рухається. CSS</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-color: #ccff99;
+        }
+        .fon_scroll {
+            margin: 0 auto;
+            width: 700px;
+            height: 800px;
+            padding: 30px;
+            background-color: #ffffff;
+            background-image: url('image/1.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: 20% 15%;
+        }
+    </style>
+</head>
+<body>
+    <div class="fon_scroll">
+        <font size="5" color="#0000ff">
+            <p>Використання зображення-фону, що не рухається</p>
+            <p>Прокрутіть сторінку, щоб побачити ефект фіксації.</p>
+            <p>Зображення залишається на місці відносно екрана.</p>
+            <p>Текст рухається, а фон — ні.</p>
+        </font>
+    </div>
+</body>
+</html>
