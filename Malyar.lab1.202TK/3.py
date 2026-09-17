@@ -1,0 +1,13 @@
+name = input("Введіть ім'я: ")
+surname = input("Введіть прізвище: ")
+age = input("Введіть вік: ")
+address = input("Введіть адресу: ")
+phone = input("Введіть номер телефону: ")
+email = input("Введіть електронну пошту: ")
+
+print("Ім'я:", name)
+print("Прізвище:", surname)
+print("Вік", age)
+print("Адресса", address)
+print("Телефон", phone)
+print("Email", email)
